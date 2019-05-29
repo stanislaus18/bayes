@@ -1,0 +1,33 @@
+<div class="row details-view collapse" [attr.id]="_Id">
+  <div class="row col-md-12"><b>Detail view of the tournament</b></div>
+  <br><br>
+  <div class="row col-md-6">
+    <div class="row col-md-4 detail-head">
+        <p class="col-md-12">Name</p>
+        <p class="col-md-12">Country</p>
+        <p class="col-md-12">City</p>
+        <p class="col-md-12">Start date</p>
+        <p class="col-md-12">End date</p>
+    </div>
+    <div class="row col-md-8">
+        <p class="col-md-12">: {{_DetailsView.name}}</p>
+        <p class="col-md-12">: {{_DetailsView.country}}</p>
+        <p class="col-md-12">: {{_DetailsView.city}}</p>
+        <p class="col-md-12">: {{_DetailsView.date_start}}</p>
+        <p class="col-md-12">: {{_DetailsView.date_end}}</p>
+    </div>
+    
+  </div>
+  <div class="row col-md-6 series-view">
+      <div class="row col-md-4 detail-head">
+          <p class="col-md-12">Name</p>
+          <p class="col-md-12">Start date</p>
+          <p class="col-md-12">End date</p>
+      </div>
+      <div class="row col-md-8">
+          <p class="col-md-12">: {{_DetailsView.series.name}}</p>
+          <p class="col-md-12">: {{_DetailsView.series.date_start}}</p>
+          <p class="col-md-12">: {{_DetailsView.series.date_end}}</p>
+      </div>    
+  </div>
+</div>

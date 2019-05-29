@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Tournaments List</h2>
+   <table class="table">
+    <thead>
+      <tr>
+        <th style="width:24%;">Tournament</th>
+        <th>
+          <ng-multiselect-dropdown [placeholder]="'Series'" [data]="dropdownList.series"
+            [(ngModel)]="filterModels.seriesItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event, 'series')"
+            (onSelectAll)="onItemSelect($event)" (onDeSelectAll)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
+          </ng-multiselect-dropdown>
+        </th>
+        <th>
+          <ng-multiselect-dropdown [placeholder]="'Start Date'" [data]="dropdownList.date_start"
+            [(ngModel)]="filterModels.startDateItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onItemSelect($event)"  (onDeSelectAll)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
+          </ng-multiselect-dropdown>
+        </th>
+        <th>
+          <ng-multiselect-dropdown [placeholder]="'End Date'" [data]="dropdownList.date_end"
+            [(ngModel)]="filterModels.endDateItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onItemSelect($event)" (onDeSelectAll)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
+          </ng-multiselect-dropdown>
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let t of tournamentListfiltered;let i=index">
+      <tr data-toggle="collapse" [attr.data-target]="'#id' + i">
+        <td>{{t.name}}</td>
+        <td>{{t.series.name}}</td>
+        <td>{{t.date_start.replace('Z0000', '')}}</td>
+        <td>{{t.date_end.replace('Z0000', '')}}</td>        
+      </tr>
+      <tr class="add-td">
+        <td colspan="4">
+        <app-detailview [_DetailsView]="t" [_Id]="'id'+i"></app-detailview>
+      </td>
+      </tr>
+      
+    </tbody>
+    <tbody *ngIf="tournamentListfiltered && tournamentListfiltered.length === 0">
+        <tr><td colspan="4"><b>No Search result</b></td></tr>
+      </tbody>
+  </table>
+</div>
